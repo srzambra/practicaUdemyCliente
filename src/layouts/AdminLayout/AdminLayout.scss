@@ -1,0 +1,45 @@
+@import "../../../src/scss//index.scss";
+
+$widthLeftMenu:200px;
+
+.admin-layout{
+    display:flex;
+    min-height: 100vh;// para que ocupe toda la pantalla
+    max-height: 100vh;// para que no pase para que haya scroll
+    background-color: $background-grey;
+
+    &__left { // este es el menuizquierdo
+        background-color:$background-dark;// 
+        width:$widthLeftMenu;
+    
+
+        .logo{
+        height: 70px;// altura
+        width: 100%; //ancho
+        margin:10px 0; // margin de 10px arriba y abajo y 0 para los lados
+
+        }
+    }
+
+    &__right{ // esto es todo el contenido de la derecha
+        width:calc(100% - $widthLeftMenu);//lo que hace es al 100 le quita la parte que ocupa el menu
+        
+        &-header{// este es el menu la parte de arriba
+            background-color:$background-dark;
+            height:50px;
+            display:flex;
+            align-items:center;
+            justify-content:flex-end;
+            padding:0 10px;
+        }
+
+        &-content{// este es el contenido 
+            position:relative;
+            margin: 20px;// este ve que tan lejos esta el contenido 
+        }
+
+
+    }
+
+
+}

@@ -1,11 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 import { WebRouter, AdminRouter } from "./router";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <WebRouter />
-      <AdminRouter />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <WebRouter />
+        <AdminRouter />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }

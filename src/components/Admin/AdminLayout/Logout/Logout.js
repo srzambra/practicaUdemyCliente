@@ -1,0 +1,19 @@
+import { Button, Icon } from "semantic-ui-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../../hooks";
+
+export function Logout() {
+  const { logout } = useAuth(); // este cierra la sesion
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    logout(); // primero va a cerrar la sesion despues va a navegar a admin
+    navigate("/admin");
+  };
+  return (
+    <Button icon basic color="red" onClick={onLogout}>
+      <Icon name="power off" />
+      Cerrar sesion
+    </Button>
+  );
+}

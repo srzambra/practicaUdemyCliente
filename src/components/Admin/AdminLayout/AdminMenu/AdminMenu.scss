@@ -1,0 +1,36 @@
+//@import "~/scr/scss/index.scss";
+@import "../../../../../src/scss/index.scss";
+
+
+.ui.menu.admin-menu{// como es un componente de semantic coloco .ui.menu
+    >.item{// se coloca asi porque es de semantic el menu
+        display:flex;
+        color:$text-light;
+        padding: 15px 20px!important;
+        margin:0 !important;
+        border-radius:0!important;
+
+        &:hover{
+            color:$text-light;
+            background-color:$primary-hover;
+        }
+        
+        &:hover,
+        &.active,
+        &.active:hover{
+            color:$text-light;
+            background-color:$primary-hover;
+
+        }
+
+
+
+        > i{
+            margin:0 !important;//
+            margin-right:10px !important; // este es el margen de separacion entre el texto y el icono
+        }
+        
+
+    }
+
+}

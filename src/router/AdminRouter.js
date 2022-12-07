@@ -2,11 +2,13 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Auth, Users, Blog, Courses, Menu, Newsletter } from "../pages/admin";
 import { AdminLayout } from "../layouts";
-
-const user = null;
+import { useAuth } from "../hooks";
 
 export function AdminRouter() {
+  const { user } = useAuth();
+
   ///admin/* cuando vaya a cualquier otro lugar que tenga *
+  // admin/* todo lo que tenga admin por delante va aqui
 
   const loadLayout = (Layout, Page) => {
     return (
@@ -15,20 +17,20 @@ export function AdminRouter() {
       </Layout>
     );
   };
-  // si user esta vacio carga algo en caso contrario si tiene infromacion carga otra cosa
   return (
     <Routes>
       {!user ? (
         <Route path="/admin/*" element={<Auth />} />
       ) : (
         <>
-          {["/admin", "/admin/blog"].map((path) => (
+          {["/Admin", "/admin/blog"].map((path) => (
             <Route
               key={path}
               path={path}
               element={loadLayout(AdminLayout, Blog)}
             />
           ))}
+
           <Route path="/admin/users" element={loadLayout(AdminLayout, Users)} />
           <Route
             path="/admin/courses"
